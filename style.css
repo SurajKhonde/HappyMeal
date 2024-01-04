@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+    background-color: #E9EAEE;
+    
+}
+#root{
+    width: 100%;
+    height: 100%;
+    
+}
+#Filter{
+    display: flex;
+
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 6.8rem;
+    border: 0.01rem  solid gray;
+}
+#LogoTag img{
+    width: 7rem;
+    height: 6.8rem;
+}
+#navItem>ul {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+#navItem>ul>li {
+   
+    padding: 2rem;
+    list-style: none;
+    font-size: 1.255rem;
+}
+#search{
+    padding:0.8rem ;
+}
+#resContainer{
+    display: flex;
+    flex-wrap: wrap;
+}
+#resCard{
+    margin: 0.01rem;
+    width: 15rem;
+    height: 20rem; 
+    text-align: center;
+
+}
+#resCard:hover{
+    cursor: pointer;
+    border: 0.1rem solid black;
+}
+#resCard>img{
+    padding: 0.1rem;
+    width: 100%;
+    height: 65%;
+}
+#button{
+    margin: 0.7rem;
+    cursor: pointer;
+    border-radius: 4rem;
+    padding: 0.5rem;
+
+}
+#h4{
+    color: crimson;
+}
+.shimer{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.shimerCards{
+    width: 15rem;
+    height: 20rem;
+    background-color:rgba(207, 248, 207, 0.833);
+    margin: 1.5rem;
+}
+#btn1{
+    padding: 1rem;
+    border-radius: 2rem;
+    width: 4.5rem;
+    height: 3rem;
+    margin-top: 1.5rem;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+#btn2{
+    width: 5rem;
+    height: 2rem;
+    border-radius: 1rem;
+    
+}
+#cuisines{
+    color: forestgreen;
+}
+ul{
+    text-decoration: none;
+}
+.user-card{
+    padding:10px;
+    border: 1px solid black;
+    
+
+} */
