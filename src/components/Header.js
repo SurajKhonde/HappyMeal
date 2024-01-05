@@ -13,18 +13,18 @@ import { HiOutlineStatusOnline } from "react-icons/hi";
 
 const Header = () => {
   const [btnNameReact, setBtnNameReact] = useState("Login");
-
   const onlineStatus = useOnlineStatus();
 
   const { loggedInUser } = useContext(UserContext);
 
   // Subscribing to the store using a Selector
   const cartItems = useSelector((store) => store.cart.items);
-
   return (
     <div className="flex justify-between bg-pink-100 shadow-lg sm:bg-yellow-50 lg:bg-green-50">
       <div className="">
-        <img className="w-[100px] h-[100px]" src={Img} />
+        <Link to ="/">
+          <img className="w-[100px] h-[100px]" src={Img} />
+          </Link>
       </div>
       <div className="flex items-center">
         <ul className="flex p-4 m-4">

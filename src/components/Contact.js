@@ -49,7 +49,7 @@ const Contact = () => {
         </div>
         <p className="text-blue-900 text-sm text-center">I'll get back to you as soon as possible!</p>
       </form>
-      <button onClick={payment}className="w-full bg-gradient-to-r from-blue-500 to-red-500 text-white py-2 px-4 rounded-full focus:outline-none focus:ring focus:border-indigo-300 transition duration-300">start payment</button>
+     
     </div>
   )
 };

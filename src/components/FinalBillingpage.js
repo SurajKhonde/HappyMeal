@@ -2,8 +2,7 @@ import React, { useContext, useState } from 'react';
 
 
 const BillingPage = ({ data}) => {
-    
-console.log(data)    
+      
 
     let total = 0;
     for (let i = 0; i <data.length; i++){

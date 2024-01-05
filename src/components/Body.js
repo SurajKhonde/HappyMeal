@@ -5,9 +5,11 @@ import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
 import CorsErrorBox from "./CorsError";
+import { Dummydata } from "../utils/DummyData";
 
 const Body = () => {
   // Local State Variable - Super powerful variable
+  const[button,setbutton]=useState("Our Top Restaurants")
   const [listOfRestaurants, setListOfRestraunt] = useState([]);
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
 
@@ -23,18 +25,13 @@ const Body = () => {
 
   const fetchData = async () => {
     try {
-      const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.3504441&lng=78.4730669&page_type=DESKTOP_WEB_LISTING"
-      );
 
-    const json = await data.json();
-    console.log(json)
-    function fetchcorrectData(i) { 
-      setInterval(() => { 
-          setFilteredRestaurant(json?.data?.cards[i]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-      setListOfRestraunt(json?.data?.cards[i]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-      },1000) 
-    }
+      const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.3504441&lng=78.4730669&page_type=DESKTOP_WEB_LISTING");
+      const json = await data.json();
+      function fetchcorrectData(i) { 
+        setFilteredRestaurant(json?.data?.cards[i]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+        setListOfRestraunt(json?.data?.cards[i]?.card?.card?.gridElements?.infoWithStyle?.restaurants) 
+      }
       const firstuser = (Array.isArray(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants) == true)
       const seconduser = (Array.isArray(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants) == true)
       if (firstuser) {
@@ -45,16 +42,13 @@ const Body = () => {
       } else { 
         fetchcorrectData(3)
       }
+    
     }
     catch(error) { 
       console.log(error)
-     
     }
-     
   };
-  
   const onlineStatus = useOnlineStatus();
-
   if (onlineStatus === false)
     return (
      <CorsErrorBox/>
@@ -82,32 +76,34 @@ const Body = () => {
             }}
           />
           <button
-            className="bg-gray-400 text-black py-2 px-6 rounded-full focus:outline-none focus:ring focus:border-blue-300 transition duration-300"
+            className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-xl"
             onClick={() => {
               // Filter the restraunt cards and update the UI
               // searchText
 
               const filteredRestaurant = listOfRestaurants.filter((res) =>
-                res.info.name.toLowerCase().includes(searchText.toLowerCase())
+                res.info.cuisines.toString().toLowerCase().includes(searchText.toLowerCase())
               );
 
               setFilteredRestaurant(filteredRestaurant);
             }}
           >
-            Search
-          </button>
+            Cuisines🍟🍔
+            </button>
         </div>
         <div className="search m-4 p-4 flex items-center">
           <button
             className="bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 hover:from-indigo-500 hover:to-pink-500 text-white py-3 px-6 rounded-full focus:outline-none focus:ring focus:border-indigo-300 transition duration-300"
             onClick={() => {
               const filteredList = listOfRestaurants.filter(
-                (res) => res.info.avgRating > 4
+                (res) => res.info.avgRating > 4.5
               );
               setFilteredRestaurant(filteredList);
+              (button == "Our Top Restaurants" ? setbutton("View All Restaurant") : setbutton("Our Top Restaurants"))
+              if (button == "View All Restaurant") { setFilteredRestaurant(listOfRestaurants) }
             }}
           >
-            Our Top Restaurants
+              { button}
           </button>
         </div>
         <div className="search m-4 p-4 flex items-center">
