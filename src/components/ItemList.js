@@ -12,7 +12,8 @@ const ItemList = ({ items, dummy }) => {
   };
   let total = 0;
   for (let i = 0; i < items.length; i++){
-     total += items[i].card.info.price
+    let card =items[i].card.info.price ? (items[i]?.card?.info?.price):(items[i]?.card?.info?.defaultPrice)
+     total += card
   }
   return (
     <div>
@@ -50,7 +51,7 @@ const ItemList = ({ items, dummy }) => {
         ))}
         <div className="mt-6">
           <p className="text-lg font-semibold">
-            Total:{ total/100} Rs
+            Total:{total/100} Rs
           </p>
           
       </div>

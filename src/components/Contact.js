@@ -1,10 +1,6 @@
 
 
 const Contact = () => {
-  const payment = async () => { 
-    const data = await fetch("http://localhost:1234/payment")
-    const json = await data.json()
-  }
   return (
     <div className="max-w-md mx-auto bg-green-200 p-8 rounded-md shadow-md mt-5 text-center">
       <h1 className="text-3xl font-bold mb-6 ">Contact Me</h1>

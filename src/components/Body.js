@@ -12,11 +12,10 @@ const Body = () => {
   const[button,setbutton]=useState("Our Top Restaurants")
   const [listOfRestaurants, setListOfRestraunt] = useState([]);
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
-
+  const [json, setjson] = useState(Dummydata)
+  console.log(json)
   const [searchText, setSearchText] = useState("");
-
   const RestaurantCardPromoted = withPromtedLabel(RestaurantCard);
-
   // Whenever state variables update, react triggers a reconciliation cycle(re-renders the component)
 
   useEffect(() => {
@@ -25,10 +24,16 @@ const Body = () => {
 
   const fetchData = async () => {
     try {
-
       const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.3504441&lng=78.4730669&page_type=DESKTOP_WEB_LISTING");
-      const json = await data.json();
-      function fetchcorrectData(i) { 
+      const record = await data.json();
+      setjson(record);
+      console.log(record)
+      
+    }
+    catch(error) { 
+      console.log(error)
+    }
+    function fetchcorrectData(i) { 
         setFilteredRestaurant(json?.data?.cards[i]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
         setListOfRestraunt(json?.data?.cards[i]?.card?.card?.gridElements?.infoWithStyle?.restaurants) 
       }
@@ -42,11 +47,6 @@ const Body = () => {
       } else { 
         fetchcorrectData(3)
       }
-    
-    }
-    catch(error) { 
-      console.log(error)
-    }
   };
   const onlineStatus = useOnlineStatus();
   if (onlineStatus === false)

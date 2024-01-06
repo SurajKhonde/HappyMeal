@@ -1,28 +1,13 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
 import { clearCart } from "../utils/cartSlice";
 import ItemList from "./ItemList";
-import { useState } from "react";
-import BillingPage from "./FinalBillingpage";
-import { Link } from "react-router-dom";
-
-
+import { useDispatch } from "react-redux";
+import { clearCart } from "../utils/cartSlice";
 const Cart = ({cartItems,onCheckout}) => {
-  // const cartItems = useSelector((store) => store.cart.items);
   const dispatch = useDispatch();
   const handleClearCart = () => {
     dispatch(clearCart());
   };
-  // const changeState = () => {   
-  //   setstate(cartItems) 
-  //   return (
-  //     <Link to="/FinalBillingPages">
-        
-  //       <BillingPage data={data} />
-  //     </Link>  
-      
-  //   )
-  //      };
   return (
       <div className="max-w-2xl mx-auto mt-8 bg-white p-8 rounded-md shadow-md">
         <h1 className="text-3xl font-bold mb-6">Your Shopping Cart</h1>
@@ -32,8 +17,6 @@ const Cart = ({cartItems,onCheckout}) => {
           <div>
                 <div className="flex items-center">
                 <ItemList items={cartItems} />
-                
-
                 </div>
                 <div className="flex items-center">
                   <button
@@ -44,149 +27,16 @@ const Cart = ({cartItems,onCheckout}) => {
                   </button>
             </div>
              <div className="mt-6">
-               
               <button 
                 onClick={onCheckout}
-
                   className="w-full bg-gradient-to-r from-blue-500 to-red-500 text-white py-2 px-4 rounded-full focus:outline-none focus:ring focus:border-indigo-300 transition duration-300"
                 >
                   Checkout
                 </button>
-             
-              
-                
-               
       </div>
-           
               </div>
         )}
       </div>
   );
 };
-
 export default Cart;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import { useSelector } from "react-redux";
-// import { clearCart } from "../utils/cartSlice";
-// import ItemList from "./ItemList";
-// import { useDispatch } from "react-redux";
-
-// const Cart = () => {
-//   const cartItems = useSelector((store) => store.cart.items);
-//   const dispatch = useDispatch();
-
-//   const handleClearCart = () => {
-//     dispatch(clearCart());
-//   };
-
-//   return (
-//     <div className="text-center m-4 p-4">
-//       <h1 className="text-2xl font-bold">Cart</h1>
-//       <div className="w-6/12 m-auto">
-//         <button
-//           className=" p-2 m-2 bg-black text-white rounded-lg"
-//           onClick={handleClearCart}
-//         >
-//           Clear Cart
-//         </button>
-//         {cartItems?.length === 0 && (
-//           <h1> you didn't order anything yet </h1>
-//         )}
-//         <ItemList items={cartItems} />
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Cart;

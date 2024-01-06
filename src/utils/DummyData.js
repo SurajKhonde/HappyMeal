@@ -1,4 +1,4 @@
-export const Dummydata =[{
+export const Dummydata ={
 "statusCode": 0,
 "data": {
 "statusMessage": "done successfully",
@@ -6396,4 +6396,4 @@ export const Dummydata =[{
 "sid": "bey7e768-84cc-4e45-8acd-75d5e652540e",
 "deviceId": "bd72601b-2d0e-9b7d-4962-e079b3a7c9de",
 "csrfToken": "7TOiEYsnojxj-__jWAspN6HiqGnV0zKktqbY2jCA"
-}]
+}

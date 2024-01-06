@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestrauntMenu";
 import RestaurantCategory from "./RestaurantCategory";
 import { useState } from "react";
+import CenteredErrorCard from "./ErrorCard";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
@@ -13,7 +14,11 @@ const RestaurantMenu = () => {
 
   const [showIndex, setShowIndex] = useState(null);
 
-  if (resInfo === null) return <Shimmer />;
+  if (resInfo === null) return (
+    <div>
+      <Shimmer/>
+    </div>
+  );
 
   const { name, cuisines, costForTwoMessage } =
     resInfo?.cards[0]?.card?.card?.info;

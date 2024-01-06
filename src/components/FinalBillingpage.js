@@ -1,21 +1,20 @@
 import React, { useContext, useState } from 'react';
 
 
-const BillingPage = ({ data}) => {
-      
-
-    let total = 0;
-    for (let i = 0; i <data.length; i++){
-    total += data[i].card.info.price
+const BillingPage = ({ data }) => {
+  console.log(data)
+  let total = 0;
+  for (let i = 0; i < data.length; i++){
+    let card =data[i].card.info.price ? (data[i]?.card?.info?.price.toFixed(2)):(data[i]?.card?.info?.defaultPrice.toFixed(2)/1)
+    total += card
+    
   }
-    const totalCost = total/100;
-
-  // Calculate GST (Assuming GST is 18%)
-  const gstAmount = (totalCost * 18) / 100;
+  const totalCost = total/100;
+  // Calculate GST (Assuming GST is 14%)
+  const gstAmount = (totalCost * 14) / 100;
 
   // Calculate total amount (Total Cost + GST)
   const totalAmount = totalCost + gstAmount;
-
   return (
     <div className="max-w-2xl mx-auto mt-8 p-8 bg-pink-50 rounded-md shadow-md">
       <h1 className="text-3xl font-bold mb-6">Billing Details</h1>
@@ -26,7 +25,7 @@ const BillingPage = ({ data}) => {
               {data.map((item) => (
           <div key={item.card.info.id} className="flex justify-between mb-2">
             <span>{item.card.info.name}</span>
-            <span>₹{(item.card.info.price.toFixed(2))/100}</span>
+            <span>{item.card.info.price ? (item?.card?.info?.price.toFixed(2)/100):(item?.card?.info?.defaultPrice.toFixed(2)/100)}</span>
           </div>
         ))}
       </div>
@@ -57,6 +56,11 @@ const BillingPage = ({ data}) => {
       </button> 
     </div>
   );
-};
+
+  }
+      
+
+   
+
 
 export default BillingPage;
