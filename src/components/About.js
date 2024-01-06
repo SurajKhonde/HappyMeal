@@ -2,41 +2,10 @@ import User from "./User";
 import UserClass from "./UserClass";
 import { Component } from "react";
 import UserContext from "../utils/UserContext";
-import pics from "../components/images/anh-nguyen-kcA-c3f_3FE-unsplash.jpg"
+import pics from "../components/images/food.jpg"
 
-// class About extends Component {
-//   constructor(props) {
-//     super(props);
-
-//   }
-
-//   componentDidMount() {
-//   }
-
-//   render() {
-
-//     return (
-//       <div>
-//         <h1>About Me</h1>
-//         <div>
-//           LoggedIn User
-//           <UserContext.Consumer>
-//             {({ loggedInUser }) => (
-//               <h1 className="text-xl font-bold">{loggedInUser}</h1>
-//             )}
-//           </UserContext.Consumer>
-//         </div>
-//         <h2>this is first react project </h2>
-//         <UserClass name={"Suraj Khonde"} location={"Hyderabad"} />
-//       </div>
-//     );
-//   }
-// }
-
-// export default About;
 import React from 'react';
 import React from 'react';
-
 const AboutUs = () => {
   const contributors = [
     { name: 'Suraj Khonde', email: 'surajrkhonde@gmail.com' },
